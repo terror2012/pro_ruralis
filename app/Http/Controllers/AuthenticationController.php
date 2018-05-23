@@ -85,7 +85,8 @@ class AuthenticationController extends Controller
                     '14 decembrie 1989, nr. 2B','address2'=>'etajul 1','room'=>'camerele 7-8','email' => 'dorina.hotoleanu@yahoo.com', 'phone'=>'+40-740-065562', 'init'=>'0', 'partners' => 'img/clients/ziarul_de_iasi.png=>'.
                     'https://www.ziaruldeiasi.ro/,img/clients/rotary.png=>http://www.rotaryiasi.ro/,img/clients/antibiotice.png=>http://www.antibiotice.ro/,img/clients/salubris.png=>http://salubris.ro/,img/clients/unirea.png=>'.
                     'https://www.hotelunirea.ro/,img/clients/star_of_hope.png=>http://www.starofhope.ro/', 'twitter'=>'https://twitter.com/', 'facebook'=>'https://www.facebook.com/', 'instagram'=>'https://www.instagram.com',
-                    'google'=>'https://plus.google.com/','about_pic'=>$about_pic,'about_us'=>$about_us];
+                    'google'=>'https://plus.google.com/','about_pic'=>$about_pic,'about_us'=>$about_us,'company_name'=>'Asociatia Pro Ruralis', 'company_address'=>'Iasi, Str. 14 decembrie 1989, nr. 2B, etajul 1, camerele 7-8',
+                    'cod_fiscal'=>'14597970', 'bank_type'=>'BCR', 'bank_account'=>'RO32RNCB0175033612900001','contact_person_name'=>'Dorina Hotoleanu', 'contact_person_phone'=>'0740065562'];
 
         $staff_1 = 'img=>img/team/placeholder400x400.jpg,name=>Dorina Hotoleanu,title=>Director Asociatiei';
         $staff_2 = 'img=>img/team/placeholder400x400.jpg,name=>Toni Hritac,title=>Redactor Sef Ziarul De Iasi';
@@ -95,6 +96,11 @@ class AuthenticationController extends Controller
         $staff_6 = 'img=>img/team/placeholder400x400.jpg,name=>Mihai Chirita,title=>Primar al Municipiului Iasi';
 
         $staff = [$staff_1, $staff_2, $staff_3, $staff_4, $staff_5, $staff_6];
+
+        $faq_1 = 'title=>Non consectetur a erat nam at lectus urna duis?,body=>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.';
+        $faq_2 = 'title=>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?,body=>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.';
+
+        $faq = [$faq_1, $faq_2];
 
         foreach($settings as $key=>$value)
         {
@@ -115,6 +121,13 @@ class AuthenticationController extends Controller
             $gen_settings = new general_settings();
             $gen_settings->name = 'staff';
             $gen_settings->value = $stf;
+            $gen_settings->save();
+        }
+        foreach($faq as $f)
+        {
+            $gen_settings = new general_settings();
+            $gen_settings->name = 'faq_donation';
+            $gen_settings->value = $f;
             $gen_settings->save();
         }
 

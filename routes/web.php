@@ -30,3 +30,5 @@ Route::get('/api/news_pages', 'NewsController@api_max_pages');
 Route::post('/api/news_posts/', 'NewsController@get_pages');
 
 Route::get('/gallery', 'GalleryController@index');
+
+Route::get('/donations', 'DonationController@index');
