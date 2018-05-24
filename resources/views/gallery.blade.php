@@ -8,23 +8,23 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{url('img/favicon.png')}}" rel="icon">
+  <link href="{{url('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{url('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="{{url('lib/animate/animate.min.css')}}" rel="stylesheet">
+  <link href="{{url('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{url('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
+  <link href="{{url('lib/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{url('css/style.css')}}" rel="stylesheet">
 
   <!-- =======================================================
     Theme Name: Avilon
@@ -39,71 +39,12 @@
   <!--==========================
     Header
   ============================-->
-  <header id="header">
-    <div class="container">
-
-      <div id="logo" class="pull-left">
-        <h1><a href="#intro" class="scrollto">Logo</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#intro"><img src="img/logo.png" alt="" title=""></a> -->
-      </div>
-
-      <nav id="nav-menu-container">
-       <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">Despre Noi</a></li>
-            <li><a href="#about">Proiectul</a></li>
-          <li><a href="#features">Blog</a></li>
-          <li><a href="#">Galerie</a></li>
-          <li><a href="#">Evenimente</a></li>
-          <li><a href="#gallery">Doneaza</a></li>
-             <li><a href="#contact">Contact</a></li>
-            <li><a href="#gallery">Sponsori</a></li>
-             <li><a href="#gallery"><b>Login</b></a></li>
-       <!--   <li class="menu-has-children"><a href="">Login</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="menu-has-children"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
-          </li> -->
-         
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- #header -->
+  @include('layouts.navbar')
 
   <!--==========================
     Intro Section
   ============================-->
   <section id="intro_despre_noi">
-
-
-
-   <!-- <div class="product-screens">
-
-      <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
-        <img src="img/product-screen-1.png" alt="">
-      </div>
-
-      <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
-        <img src="img/product-screen-2.png" alt="">
-      </div>
-
-      <div class="product-screen-3 wow fadeInUp" data-wow-duration="0.6s">
-        <img src="img/product-screen-3.png" alt="">
-      </div>-->
 
   
 
@@ -263,20 +204,20 @@
 @include('layouts.footer')
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="{{url('lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{url('lib/jquery/jquery-migrate.min.js')}}"></script>
+  <script src="{{url('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url('lib/easing/easing.min.js')}}"></script>
+  <script src="{{url('lib/wow/wow.min.js')}}"></script>
+  <script src="{{url('lib/superfish/hoverIntent.js')}}"></script>
+  <script src="{{url('lib/superfish/superfish.min.js')}}"></script>
+  <script src="{{url('lib/magnific-popup/magnific-popup.min.js')}}"></script>
 
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="{{url('contactform/contactform.js')}}"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="{{url('js/main.js')}}"></script>
 
   <script>
     $('#month').val('{{$current_month}}');

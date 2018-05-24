@@ -12,10 +12,10 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/login', 'AuthenticationController@loginIndex');
-Route::get('/register', 'AuthenticationController@registerIndex');
-Route::post('/login', 'AuthenticationController@login');
-Route::post('/register', 'AuthenticationController@register');
+//Route::get('/login', 'AuthenticationController@loginIndex');
+//Route::get('/register', 'AuthenticationController@registerIndex');
+//Route::post('/login', 'AuthenticationController@login');
+//Route::post('/register', 'AuthenticationController@register');
 
 Route::get('/init', 'AuthenticationController@init_stuff');
 
