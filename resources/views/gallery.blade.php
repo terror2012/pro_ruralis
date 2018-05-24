@@ -155,7 +155,6 @@
     @foreach($years as $year)
                         <option value="{{$year['year']}}" @if($year['selected'] === true) selected="selected" @endif>{{$year['year']}}</option>
         @endforeach
-                    <option value="2019">2019</option>
   </select>
 				
 			</div>
