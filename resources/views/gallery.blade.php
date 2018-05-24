@@ -131,39 +131,41 @@
           <div class="btn-group date-selector">
  <div class="dropdown ">
 				 
-				<select class="date-color dropdown-toggle btn btn-secondary form-control" id="sel1">
-    <option>Jan</option>
-    <option>Feb</option>
-    <option>Mar</option>
-    <option>Apr</option>
+				<select id="month" class="date-color dropdown-toggle btn btn-secondary form-control" id="sel1">
+    <option value="01">Jan</option>
+    <option value="02">Feb</option>
+    <option value="03">Mar</option>
+    <option value="04">Apr</option>
+    <option value="05">May</option>
+    <option value="06">Jun</option>
+    <option value="07">Jul</option>
+    <option value="08">Aug</option>
+    <option value="09">Sep</option>
+    <option value="10">Oct</option>
+    <option value="11">Nov</option>
+    <option value="12">Dec</option>
   </select>
 				
 			</div>
-  <div class="dropdown-menu">
-    ...
-  </div>
 </div>
               <div class="btn-group date-selector">
  <div class="dropdown ">
 				 
-				<select class="date-color dropdown-toggle btn btn-secondary form-control" id="sel1">
-    <option>2018</option>
-    <option>2017</option>
-    <option>2016</option>
-    <option>2015</option>
+				<select id="year" class="date-color dropdown-toggle btn btn-secondary form-control" id="sel1">
+    @foreach($years as $year)
+                        <option value="{{$year['year']}}" @if($year['selected'] === true) selected="selected" @endif>{{$year['year']}}</option>
+        @endforeach
+                    <option value="2019">2019</option>
   </select>
 				
 			</div>
-  <div class="dropdown-menu">
-    ...
-  </div>
 </div>
           </div>
           
           
-        <div class="row no-gutters">
+        <div id="image_wrapper" class="row no-gutters">
 
-          @foreach($gallery as $gal)
+          @foreach($images as $gal)
             <div class="col-lg-4 col-md-6">
               <div class="gallery-item wow fadeInUp">
                 <a href="{{url($gal['image'])}}" class="gallery-popup">
@@ -185,39 +187,39 @@
       <div class="container">
         <div class="row wow fadeInUp">
 
-          <div class="col-lg-4 col-md-4">
-            <div class="contact-about">
-              <h3>Contact</h3>
-              <p>Asociatia „Pro Ruralis” Iasi <br> CF 14597970 <br> <b>Datele despre Conturile Asociatiei „Pro Ruralis”, deschise la Banca Comerciala Romana, Sucursala Iasi pot fi obtinute prin telefon.</b></p> 
-              <div class="social-links">
-                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-               
-              </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="contact-about">
+                    <h3>Contact</h3>
+                    <p>Asociatia „Pro Ruralis” Iasi <br> CF 14597970 <br> <b>Datele despre Conturile Asociatiei „Pro Ruralis”, deschise la Banca Comerciala Romana, Sucursala Iasi pot fi obtinute prin telefon.</b></p>
+                    <div class="social-links">
+                        @if($data['twitter']) <a href="{{$data['twitter']}}" class="twitter"><i class="fa fa-twitter"></i></a> @endif
+                        @if($data['facebook']) <a href="{{$data['facebook']}}" class="facebook"><i class="fa fa-facebook"></i></a> @endif
+                        @if($data['instagram']) <a href="{{$data['instagram']}}" class="instagram"><i class="fa fa-instagram"></i></a> @endif
+                        @if($data['google']) <a href="{{$data['google']}}" class="google-plus"><i class="fa fa-google-plus"></i></a> @endif
+
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="col-lg-3 col-md-4">
-            <div class="info">
-              <div>
-                <i class="ion-ios-location-outline"></i>
-                <p>Iasi<br>Str. 14 decembrie 1989, nr. 2B<br>etajul 1<br>camerele 7-8</p>
-              </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="info">
+                    <div>
+                        <i class="ion-ios-location-outline"></i>
+                        <p>{{$data['city']}}<br>{{$data['address']}}<br>{{$data['address2']}}<br>{{$data['room']}}</p>
+                    </div>
 
-              <div>
-                <i class="ion-ios-email-outline"></i>
-                <p>dorina.hotoleanu@yahoo.com</p>
-              </div>
+                    <div>
+                        <i class="ion-ios-email-outline"></i>
+                        <p>{{$data['email']}}</p>
+                    </div>
 
-              <div>
-                <i class="ion-ios-telephone-outline"></i>
-                <p>+40-740-065562</p>
-              </div>
+                    <div>
+                        <i class="ion-ios-telephone-outline"></i>
+                        <p>{{$data['phone']}}</p>
+                    </div>
 
+                </div>
             </div>
-          </div>
 
           <div class="col-lg-5 col-md-8">
             <div class="form">
@@ -254,31 +256,12 @@
 
   </main>
 
+  </main>
+
   <!--==========================
     Footer
   ============================-->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 text-lg-left text-center">
-          <div class="copyright">
-            &copy; Copyright <strong>DoubleT Design</strong>. All Rights Reserved
-          </div>
-          
-        </div>
-        <div class="col-lg-6">
-          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="#intro" class="scrollto">*</a>
-            <a href="#about" class="scrollto">*</a>
-            <a href="#">*</a>
-            <a href="#">*</a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </footer><!-- #footer -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+@include('layouts.footer')
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
@@ -296,5 +279,11 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 
+  <script>
+    $('#month').val('{{$current_month}}');
+      var token = '{{csrf_token()}}';
+      var api_link = '{{url('/gallery/api_images')}}';
+  </script>
+    <script src="{{url('/js/gallery_apis.js')}}"></script>
 </body>
 </html>
