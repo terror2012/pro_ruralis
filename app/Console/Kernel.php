@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Eloquent\events;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -24,8 +26,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function()
+        {
+           $events = events::where('event_time', '<', Carbon::now())->get();
+           foreach($events as $event)
+           {
+               $event->delete();
+           }
+        })->timezone('Europe/Bucharest')->dailyAt('16:00');
     }
 
     /**
