@@ -34,3 +34,5 @@ Route::get('/gallery', 'GalleryController@index');
 Route::get('/donations', 'DonationController@index');
 
 Route::post('/gallery/api_images', 'GalleryController@api_get_images');
+
+Route::get('/events', 'EventsController@index');
