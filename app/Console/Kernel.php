@@ -26,14 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function()
-        {
-           $events = events::where('event_time', '<', Carbon::now())->get();
-           foreach($events as $event)
-           {
-               $event->delete();
-           }
-        })->timezone('Europe/Bucharest')->dailyAt('16:00');
+        $schedule->command('custom:event-clear')->timezone('Europe/Bucharest')->dailyAt('12:00');
     }
 
     /**

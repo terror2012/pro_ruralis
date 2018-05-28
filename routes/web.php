@@ -17,8 +17,6 @@ Route::get('/', 'IndexController@index');
 //Route::post('/login', 'AuthenticationController@login');
 //Route::post('/register', 'AuthenticationController@register');
 
-Route::get('/init', 'AuthenticationController@init_stuff');
-
 Route::get('/about', 'AboutController@index');
 
 Route::get('/news', 'NewsController@index');
