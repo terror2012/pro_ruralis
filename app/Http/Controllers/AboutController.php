@@ -9,7 +9,7 @@ class AboutController extends Controller
     function index(IndexController $helpers)
     {
 
-        $data = [];
+        $data = $helpers->get_contact_info();
 
         $settings = ['about_pic', 'about_us'];
 

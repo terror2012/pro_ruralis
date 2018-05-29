@@ -15,7 +15,7 @@
                 <li><a href="{{url('/gallery')}}">Galerie</a></li>
                 <li><a href="{{url('/events')}}">Evenimente</a></li>
                 <li><a href="{{url('/donations')}}">Doneaza</a></li>
-                <li><a href="{{url('/contacts')}}">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="{{url('/sponsors')}}">Sponsori</a></li>
                 <li><a href="{{url('/login')}}"><b>Login</b></a></li>
 
