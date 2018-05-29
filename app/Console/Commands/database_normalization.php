@@ -39,14 +39,17 @@ class database_normalization extends Command
      */
     public function handle()
     {
+        $count = 0;
         $sponsors = sponsors::all();
         foreach($sponsors as $sponsor)
         {
             if(User::find($sponsor->user_id)->account_type !== 2)
             {
+                $count += 1;
                 $this->info('Sponsor ' . User::find($sponsor->user_id)->name . '\'s record deleted, because of faulty access level. Access level -> ' . User::find($sponsor->user_id)->account_type);
                 $sponsor->delete();
             }
         }
+        $this->info('Sponsor database normalization finished. ' . $count . ' records deleted.');
     }
 }
