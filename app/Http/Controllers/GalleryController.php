@@ -17,12 +17,15 @@ class GalleryController extends Controller
             return Carbon::parse($date->created_at)->format('m');
         });
         $gal_array = [];
-        foreach($gallery[Carbon::now()->format('m')] as $gal)
+        if($gallery->count() > 0)
         {
-            $temp_array['image'] = $gal->image;
-            $temp_array['id'] = $gal->id;
-            $temp_array['alt'] = $gal->alt;
-            array_push($gal_array, $temp_array);
+            foreach($gallery[Carbon::now()->format('m')] as $gal)
+            {
+                $temp_array['image'] = $gal->image;
+                $temp_array['id'] = $gal->id;
+                $temp_array['alt'] = $gal->alt;
+                array_push($gal_array, $temp_array);
+            }
         }
         $current_month = Carbon::now()->format('m');
         $years = [];
