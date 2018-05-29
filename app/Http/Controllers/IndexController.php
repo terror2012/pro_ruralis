@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Eloquent\gallery;
 use App\Eloquent\general_settings;
 use App\Eloquent\news;
 use Illuminate\Database\QueryException;
@@ -48,8 +49,16 @@ class IndexController extends Controller
             $new_array['post'] = implode(' ', array_slice(str_word_count(strip_tags(html_entity_decode($new->post)), 2), 0, 25)) . ' ...';
             array_push($data['news'], $new_array);
         }
+        $gallery_array = [];
+        $events = gallery::latest()->take(6)->get();
+        foreach($events as $event)
+        {
+            $event_array['image'] = $event->image;
+            $event_array['alt'] = $event->alt;
+            array_push($gallery_array, $event_array);
+        }
 
-        return view('index')->with('data', $data);
+        return view('index')->with('data', $data)->with('events', $gallery_array);
     }
 
 

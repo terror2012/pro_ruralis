@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('custom:event-clear')->timezone('Europe/Bucharest')->dailyAt('12:00');
+        $schedule->command('custom:db-norm')->timezone('Europe/Bucharest')->dailyAt('12:00');
     }
 
     /**

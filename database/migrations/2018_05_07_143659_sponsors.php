@@ -17,8 +17,9 @@ class Sponsors extends Migration
         {
             $t->increments('id');
             $t->string('company_name')->nullable();
-            $t->integer('sponsor_type');
-            $t->string('logo_path')->nullable();
+            $t->string('company_address')->nullable();
+            $t->string('logo_path')->default('img/No_image.png');
+            $t->integer('user_id');
             $t->timestamps();
         });
     }

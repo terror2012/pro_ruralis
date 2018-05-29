@@ -19,7 +19,7 @@ class UserInfo extends Migration
             $t->string('liceu')->nullable();
             $t->string('city')->nullable();
             $t->string('age')->nullable();
-            $t->integer('account_type')->default(1);
+            $t->integer('account_type')->default(1); //1 for users, 2 for sponsors, 3 for admins
             $t->string('phone')->nullable();
         });
     }
