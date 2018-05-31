@@ -37,4 +37,4 @@ Route::get('/events', 'EventsController@index');
 
 Route::get('/sponsors', 'SponsorsController@index');
 
-Route::post('/contact', 'IndexController@contact_handler');
+Route::post('/contact', 'IndexController@send_contact_message');

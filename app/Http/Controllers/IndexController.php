@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Eloquent\gallery;
 use App\Eloquent\general_settings;
 use App\Eloquent\news;
+use App\Mail\ContactMail;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 
 class IndexController extends Controller
@@ -60,7 +62,6 @@ class IndexController extends Controller
 
         return view('index')->with('data', $data)->with('events', $gallery_array);
     }
-
 
     public function set_general_settings($name, $value)
     {
@@ -147,5 +148,23 @@ class IndexController extends Controller
             $data[$settings] = $this->get_general_settings($settings);
         }
         return $data;
+    }
+    function send_contact_message(Request $r)
+    {
+        $name = $r->get('name');
+        $email = $r->get('email');
+        $subject = $r->get('subject');
+        $message = $r->get('message');
+
+        try
+        {
+            Mail::to($email)->send(new ContactMail($name, $email, $subject, $message));
+        } catch (\Exception $e)
+        {
+            flash($e->getMessage())->error();
+            return redirect()->back();
+        }
+        flash('Mail sent successfully')->success();
+        return redirect()->back();
     }
 }

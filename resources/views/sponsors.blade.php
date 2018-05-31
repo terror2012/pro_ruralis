@@ -46,7 +46,7 @@
   ============================-->
   <section id="intro_despre_noi">
 
-  
+    @include('flash::message')
 
   </section><!-- #intro -->
 
@@ -150,23 +150,24 @@
             <div class="form">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="{{url('/contact')}}" method="post" class="contactForm">
+                @csrf
                 <div class="form-row">
                   <div class="form-group col-lg-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" />
                     <div class="validation"></div>
                   </div>
                   <div class="form-group col-lg-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"/>
                     <div class="validation"></div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"/>
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                   <div class="validation"></div>
                 </div>
                 <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
@@ -181,47 +182,25 @@
 
   </main>
 
+  </main>
+
   <!--==========================
     Footer
   ============================-->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 text-lg-left text-center">
-          <div class="copyright">
-            &copy; Copyright <strong>DoubleT Design</strong>. All Rights Reserved
-          </div>
-          
-        </div>
-        <div class="col-lg-6">
-          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="#intro" class="scrollto">*</a>
-            <a href="#about" class="scrollto">*</a>
-            <a href="#">*</a>
-            <a href="#">*</a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </footer><!-- #footer -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  @include('layouts.footer')
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
-
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="{{url('lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{url('lib/jquery/jquery-migrate.min.js')}}"></script>
+  <script src="{{url('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url('lib/easing/easing.min.js')}}"></script>
+  <script src="{{url('lib/wow/wow.min.js')}}"></script>
+  <script src="{{url('lib/superfish/hoverIntent.js')}}"></script>
+  <script src="{{url('lib/superfish/superfish.min.js')}}"></script>
+  <script src="{{url('lib/magnific-popup/magnific-popup.min.js')}}"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="{{url('js/main.js')}}"></script>
 
 </body>
 </html>
