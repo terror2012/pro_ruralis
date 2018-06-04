@@ -110,4 +110,8 @@ class AuthenticationController extends Controller
             return redirect()->back();
         }
     }
+    function sponsor()
+    {
+        abort(501,'Method Not Implemented');
+    }
 }

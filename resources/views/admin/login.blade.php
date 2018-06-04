@@ -47,7 +47,7 @@
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-        <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
+        <a href="{{url('/register')}}"><div class="btn btn-info btn-lg btn-block">Signup</div></a>
       </div>
     </form>
     <div class="text-right">
