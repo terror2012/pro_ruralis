@@ -142,11 +142,12 @@ function clear_news_list(news_html)
 function get_new_news_list()
 {
     data_info = {
-        '_token': token,
         'page': page
     };
     $.ajax({
         type: "POST",
+        headers:
+            {'X-CSRF-TOKEN': token},
         url:api_link_2,
         dataType: 'json',
         data: data_info,

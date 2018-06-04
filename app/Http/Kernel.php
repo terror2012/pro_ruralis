@@ -2,6 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\admin_priv;
+use App\Http\Middleware\special_path_protection;
+use App\Http\Middleware\sponsor_priv;
+use App\Http\Middleware\user_priv;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -57,5 +61,9 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'admin_priv' => admin_priv::class,
+        'user_priv' => user_priv::class,
+        'special_path' => special_path_protection::class,
+        'sponsor_priv' => sponsor_priv::class,
     ];
 }

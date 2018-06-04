@@ -12,10 +12,6 @@
 */
 
 Route::get('/', 'IndexController@index');
-//Route::get('/login', 'AuthenticationController@loginIndex');
-//Route::get('/register', 'AuthenticationController@registerIndex');
-//Route::post('/login', 'AuthenticationController@login');
-//Route::post('/register', 'AuthenticationController@register');
 
 Route::get('/about', 'AboutController@index');
 
@@ -38,3 +34,27 @@ Route::get('/events', 'EventsController@index');
 Route::get('/sponsors', 'SponsorsController@index');
 
 Route::post('/contact', 'IndexController@send_contact_message');
+
+
+Route::middleware(['admin_priv'])->group(function()
+{
+   Route::get('/adminPanel', 'AdminController@index');
+});
+Route::middleware(['user_priv'])->group(function()
+{
+   Route::get('/dashboard', 'UserPanelController@index');
+});
+Route::middleware(['sponsor_priv'])->group(function()
+{
+   Route::get('/sponsorPanel', 'SponsorPanelController@index');
+});
+Route::middleware(['special_path'])->group(function()
+{
+    Route::get('/login', 'AuthenticationController@loginIndex');
+    Route::get('/register', 'AuthenticationController@registerIndex');
+    Route::get('/register/student', 'AuthenticationController@studentIndex');
+    Route::get('/register/sponsor', 'AuthenticationController@sponsorIndex');
+    Route::post('/login', 'AuthenticationController@login');
+    Route::post('/register/student', 'AuthenticationController@student');
+    Route::post('/register/sponsor', 'AuthenticationController@sponsor');
+});

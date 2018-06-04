@@ -14,12 +14,13 @@ $('#year').change(function()
 function get_images()
 {
     data_info = {
-        '_token': token,
         'month' : $('#month').val(),
         'year' : $('#year').val()
     };
     $.ajax({
         type: "POST",
+        headers:
+            {'X-CSRF-TOKEN': token},
         url:api_link,
         data: data_info,
         success: function(data)
