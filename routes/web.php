@@ -35,6 +35,7 @@ Route::get('/sponsors', 'SponsorsController@index');
 
 Route::post('/contact', 'IndexController@send_contact_message');
 
+Route::get('/logout', 'AuthenticationController@logout');
 
 Route::middleware(['admin_priv'])->group(function()
 {

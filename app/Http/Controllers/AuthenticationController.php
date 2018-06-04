@@ -50,6 +50,18 @@ class AuthenticationController extends Controller
     {
         return view('admin.register');
     }
+    function logout()
+    {
+        if(Auth::check())
+        {
+            Auth::logout();
+            return redirect('/');
+        }
+        else
+        {
+            return redirect('/');
+        }
+    }
     function studentIndex()
     {
         return view('admin.register_student');
