@@ -40,6 +40,10 @@ Route::get('/logout', 'AuthenticationController@logout');
 Route::middleware(['admin_priv'])->group(function()
 {
    Route::get('/adminPanel', 'AdminController@index');
+   Route::get('/adminPanel/add_article', 'AdminController@add_article_index');
+   Route::post('/adminPanel/add_article', 'AdminController@add_article');
+   Route::get('/adminPanel/view_messages', 'AdminMessagesController@view');
+   Route::get('/adminPanel/view_news', 'AdminNewsController@view');
 });
 Route::middleware(['user_priv'])->group(function()
 {
